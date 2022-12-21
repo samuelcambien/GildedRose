@@ -1,5 +1,10 @@
 package com.gildedrose;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.stereotype.Component;
+
+@Component
 class GildedRose {
     Item[] items;
 
@@ -58,5 +63,12 @@ class GildedRose {
                 }
             }
         }
+    }
+
+    public static ApplicationContext start() {
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
+        context.scan(GildedRose.class.getPackage().getName());
+        context.refresh();
+        return context;
     }
 }

@@ -5,83 +5,103 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import com.gildedrose.GildedRoseTest;
 import com.gildedrose.Item;
 import org.junit.jupiter.api.Test;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 class BackstagePassTest extends GildedRoseTest {
 
-    // regular
-    private final Item backstagePass1 = new Item("Backstage passes to a TAFKAL80ETC concert", 11, 0);
-    private final Item backstagePass2 = new Item("Backstage passes to a TAFKAL80ETC concert", 11, 49);
+    @Configuration
+    static class TestConfig {
 
-    // double increase
-    private final Item backstagePass3 = new Item("Backstage passes to a TAFKAL80ETC concert", 10, 0);
-    private final Item backstagePass4 = new Item("Backstage passes to a TAFKAL80ETC concert", 6, 3);
+        // regular
+        @Bean
+        public Item backstagePass1() {
+            return new Item("Backstage passes to a TAFKAL80ETC concert", 11, 0);
+        }
+        @Bean
+        public Item backstagePass2() {
+            return new Item("Backstage passes to a TAFKAL80ETC concert", 11, 49);
+        }
 
-    // triple increase
-    private final Item backstagePass5 = new Item("Backstage passes to a TAFKAL80ETC concert", 5, 0);
-    private final Item backstagePass6 = new Item("Backstage passes to a TAFKAL80ETC concert", 1, 3);
+        // double increase
+        @Bean
+        public Item backstagePass3() {
+            return new Item("Backstage passes to a TAFKAL80ETC concert", 10, 0);
+        }
+        @Bean
+        public Item backstagePass4() {
+            return new Item("Backstage passes to a TAFKAL80ETC concert", 6, 3);
+        }
 
-    // after sell date
-    private final Item backstagePass7 = new Item("Backstage passes to a TAFKAL80ETC concert", 0, 3);
-    private final Item backstagePass8 = new Item("Backstage passes to a TAFKAL80ETC concert", -1, 47);
+        // triple increase
+        @Bean
+        public Item backstagePass5() {
+            return new Item("Backstage passes to a TAFKAL80ETC concert", 5, 0);
+        }
+        @Bean
+        public Item backstagePass6() {
+            return new Item("Backstage passes to a TAFKAL80ETC concert", 1, 3);
+        }
 
-    // max quality limit
-    private final Item backstagePass9 = new Item("Backstage passes to a TAFKAL80ETC concert", 11, 50);
-    private final Item backstagePass10 = new Item("Backstage passes to a TAFKAL80ETC concert", 1, 48);
+        // after sell date
+        @Bean
+        public Item backstagePass7() {
+            return new Item("Backstage passes to a TAFKAL80ETC concert", 0, 3);
+        }
+        @Bean
+        public Item backstagePass8() {
+            return new Item("Backstage passes to a TAFKAL80ETC concert", -1, 47);
+        }
 
-    @Override
-    protected Item[] getItems() {
-        return new Item[] {
-            backstagePass1,
-            backstagePass2,
-            backstagePass3,
-            backstagePass4,
-            backstagePass5,
-            backstagePass6,
-            backstagePass7,
-            backstagePass8,
-            backstagePass9,
-            backstagePass10,
-        };
+        // max quality limit
+        @Bean
+        public Item backstagePass9() {
+            return new Item("Backstage passes to a TAFKAL80ETC concert", 11, 50);
+        }
+        @Bean
+        public Item backstagePass10() {
+            return new Item("Backstage passes to a TAFKAL80ETC concert", 1, 48);
+        }
     }
 
     @Test
     void sellinDecreases() {
-        assertEquals(10, backstagePass1.sellIn);
-        assertEquals(9, backstagePass3.sellIn);
-        assertEquals(5, backstagePass4.sellIn);
-        assertEquals(4, backstagePass5.sellIn);
-        assertEquals(0, backstagePass6.sellIn);
-        assertEquals(-1, backstagePass7.sellIn);
-        assertEquals(-2, backstagePass8.sellIn);
+        assertEquals(10, getNamedItem("backstagePass1").sellIn);
+        assertEquals(9, getNamedItem("backstagePass3").sellIn);
+        assertEquals(5, getNamedItem("backstagePass4").sellIn);
+        assertEquals(4, getNamedItem("backstagePass5").sellIn);
+        assertEquals(0, getNamedItem("backstagePass6").sellIn);
+        assertEquals(-1, getNamedItem("backstagePass7").sellIn);
+        assertEquals(-2, getNamedItem("backstagePass8").sellIn);
     }
 
     @Test
     void qualityIncrease() {
-        assertEquals(1, backstagePass1.quality);
-        assertEquals(50, backstagePass2.quality);
+        assertEquals(1, getNamedItem("backstagePass1").quality);
+        assertEquals(50, getNamedItem("backstagePass2").quality);
     }
 
     @Test
     void qualityIncreasesDouble10DaysOrLess() {
-        assertEquals(2, backstagePass3.quality);
-        assertEquals(5, backstagePass4.quality);
+        assertEquals(2, getNamedItem("backstagePass3").quality);
+        assertEquals(5, getNamedItem("backstagePass4").quality);
     }
 
     @Test
     void qualityIncreasesTriple5DaysOrLess() {
-        assertEquals(3, backstagePass5.quality);
-        assertEquals(6, backstagePass6.quality);
+        assertEquals(3, getNamedItem("backstagePass5").quality);
+        assertEquals(6, getNamedItem("backstagePass6").quality);
     }
 
     @Test
     void qualityDropsAfterSellDate() {
-        assertEquals(0, backstagePass7.quality);
-        assertEquals(0, backstagePass8.quality);
+        assertEquals(0, getNamedItem("backstagePass7").quality);
+        assertEquals(0, getNamedItem("backstagePass8").quality);
     }
 
     @Test
     void maxQuality() {
-        assertEquals(50, backstagePass9.quality);
-        assertEquals(50, backstagePass10.quality);
+        assertEquals(50, getNamedItem("backstagePass9").quality);
+        assertEquals(50, getNamedItem("backstagePass10").quality);
     }
 }
