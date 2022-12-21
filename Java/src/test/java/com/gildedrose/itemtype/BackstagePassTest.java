@@ -9,24 +9,24 @@ import org.junit.jupiter.api.Test;
 class BackstagePassTest extends GildedRoseTest {
 
     // regular
-    private final Item backstagePass1 = new Item("Backstage passes to a TAFKAL80ETC concert", 11, 0);
-    private final Item backstagePass2 = new Item("Backstage passes to a TAFKAL80ETC concert", 11, 49);
+    private final Item backstagePass1 = new Item(BackstagePass.NAME, 11, 0);
+    private final Item backstagePass2 = new Item(BackstagePass.NAME, 11, 49);
 
     // double increase
-    private final Item backstagePass3 = new Item("Backstage passes to a TAFKAL80ETC concert", 10, 0);
-    private final Item backstagePass4 = new Item("Backstage passes to a TAFKAL80ETC concert", 6, 3);
+    private final Item backstagePass3 = new Item(BackstagePass.NAME, 10, 0);
+    private final Item backstagePass4 = new Item(BackstagePass.NAME, 6, 3);
 
     // triple increase
-    private final Item backstagePass5 = new Item("Backstage passes to a TAFKAL80ETC concert", 5, 0);
-    private final Item backstagePass6 = new Item("Backstage passes to a TAFKAL80ETC concert", 1, 3);
+    private final Item backstagePass5 = new Item(BackstagePass.NAME, 5, 0);
+    private final Item backstagePass6 = new Item(BackstagePass.NAME, 1, 3);
 
     // after sell date
-    private final Item backstagePass7 = new Item("Backstage passes to a TAFKAL80ETC concert", 0, 3);
-    private final Item backstagePass8 = new Item("Backstage passes to a TAFKAL80ETC concert", -1, 47);
+    private final Item backstagePass7 = new Item(BackstagePass.NAME, 0, 3);
+    private final Item backstagePass8 = new Item(BackstagePass.NAME, -1, 47);
 
     // max quality limit
-    private final Item backstagePass9 = new Item("Backstage passes to a TAFKAL80ETC concert", 11, 50);
-    private final Item backstagePass10 = new Item("Backstage passes to a TAFKAL80ETC concert", 1, 48);
+    private final Item backstagePass9 = new Item(BackstagePass.NAME, 11, 50);
+    private final Item backstagePass10 = new Item(BackstagePass.NAME, 1, 48);
 
     @Override
     protected Item[] getItems() {
