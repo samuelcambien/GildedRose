@@ -5,12 +5,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import com.gildedrose.GildedRoseTest;
 import com.gildedrose.Item;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
 class SulfurasTest extends GildedRoseTest {
 
-    @Configuration
+    @TestConfiguration
     static class TestConfig {
         @Bean
         Item sulfuras1() {

@@ -9,11 +9,9 @@ import java.util.Optional;
 import java.util.function.Consumer;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.stereotype.Component;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@Component
+@SpringBootApplication
 public class GildedRose {
 
     public static final QualityUpdater DEFAULT_QUALITY_UPDATER = item -> item.sellIn > 0 ? -1 : -2;
@@ -42,12 +40,5 @@ public class GildedRose {
                     .orElse(DEFAULT_SELLIN_UPDATER)
                     .accept(item);
         }
-    }
-
-    public static ApplicationContext start() {
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
-        context.scan(GildedRose.class.getPackage().getName());
-        context.refresh();
-        return context;
     }
 }
