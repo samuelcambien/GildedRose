@@ -10,6 +10,7 @@ import java.util.stream.Stream;
 
 import com.gildedrose.itemtype.AgedBrie;
 import com.gildedrose.itemtype.BackstagePass;
+import com.gildedrose.itemtype.Conjured;
 import com.gildedrose.itemtype.Sulfuras;
 
 public class GildedRose {
@@ -25,6 +26,7 @@ public class GildedRose {
         setItemTypes(
             new AgedBrie(),
             new BackstagePass(),
+            new Conjured(),
             new Sulfuras()
         );
     }
