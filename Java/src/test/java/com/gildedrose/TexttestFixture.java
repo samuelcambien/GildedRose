@@ -16,8 +16,7 @@ public class TexttestFixture {
                 // this conjured item does not work properly yet
                 new Item("Conjured Mana Cake", 3, 6) };
 
-        GildedRose app = GildedRose.start().getBean(GildedRose.class);
-        app.items = items;
+        GildedRose app = new GildedRose(items);
 
         int days = 2;
         if (args.length > 0) {

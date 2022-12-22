@@ -1,20 +1,13 @@
 package com.gildedrose;
 
-import org.junit.jupiter.api.BeforeAll;
-import org.springframework.context.ApplicationContext;
+import org.junit.jupiter.api.BeforeEach;
 
 public abstract class GildedRoseTest {
 
-    private static ApplicationContext context;
-
-    @BeforeAll
-    public static void setUp() {
-        context = GildedRose.start();
-        context.getBean(GildedRose.class)
-               .updateQuality();
+    @BeforeEach
+    public void setUp() {
+        new GildedRose(getItems()).updateQuality();
     }
 
-    protected static Item getNamedItem(String name) {
-        return context.getBean(name, Item.class);
-    }
+    protected abstract Item[] getItems();
 }
