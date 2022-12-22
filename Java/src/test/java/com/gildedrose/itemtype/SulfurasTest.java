@@ -14,15 +14,15 @@ class SulfurasTest extends GildedRoseTest {
     static class TestConfig {
         @Bean
         Item sulfuras1() {
-            return new Item(Sulfuras.NAME, 0, 80);
+            return new Item("Sulfuras, Hand of Ragnaros", 0, 80);
         }
         @Bean
         Item sulfuras2() {
-            return new Item(Sulfuras.NAME, 7, 80);
+            return new Item("Sulfuras, Hand of Ragnaros", 7, 80);
         }
         @Bean
         Item sulfuras3() {
-            return new Item(Sulfuras.NAME, -4, 80);
+            return new Item("Sulfuras, Hand of Ragnaros", -4, 80);
         }
     }
 

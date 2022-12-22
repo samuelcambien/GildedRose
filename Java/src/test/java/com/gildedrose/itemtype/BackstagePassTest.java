@@ -16,51 +16,51 @@ class BackstagePassTest extends GildedRoseTest {
         // regular
         @Bean
         public Item backstagePass1() {
-            return new Item(BackstagePass.NAME, 11, 0);
+            return new Item("Backstage passes to a TAFKAL80ETC concert", 11, 0);
         }
         @Bean
         public Item backstagePass2() {
-            return new Item(BackstagePass.NAME, 11, 49);
+            return new Item("Backstage passes to a TAFKAL80ETC concert", 11, 49);
         }
 
         // double increase
         @Bean
         public Item backstagePass3() {
-            return new Item(BackstagePass.NAME, 10, 0);
+            return new Item("Backstage passes to a TAFKAL80ETC concert", 10, 0);
         }
         @Bean
         public Item backstagePass4() {
-            return new Item(BackstagePass.NAME, 6, 3);
+            return new Item("Backstage passes to a TAFKAL80ETC concert", 6, 3);
         }
 
         // triple increase
         @Bean
         public Item backstagePass5() {
-            return new Item(BackstagePass.NAME, 5, 0);
+            return new Item("Backstage passes to a TAFKAL80ETC concert", 5, 0);
         }
         @Bean
         public Item backstagePass6() {
-            return new Item(BackstagePass.NAME, 1, 3);
+            return new Item("Backstage passes to a TAFKAL80ETC concert", 1, 3);
         }
 
         // after sell date
         @Bean
         public Item backstagePass7() {
-            return new Item(BackstagePass.NAME, 0, 3);
+            return new Item("Backstage passes to a TAFKAL80ETC concert", 0, 3);
         }
         @Bean
         public Item backstagePass8() {
-            return new Item(BackstagePass.NAME, -1, 47);
+            return new Item("Backstage passes to a TAFKAL80ETC concert", -1, 47);
         }
 
         // max quality limit
         @Bean
         public Item backstagePass9() {
-            return new Item(BackstagePass.NAME, 11, 50);
+            return new Item("Backstage passes to a TAFKAL80ETC concert", 11, 50);
         }
         @Bean
         public Item backstagePass10() {
-            return new Item(BackstagePass.NAME, 1, 48);
+            return new Item("Backstage passes to a TAFKAL80ETC concert", 1, 48);
         }
     }
 

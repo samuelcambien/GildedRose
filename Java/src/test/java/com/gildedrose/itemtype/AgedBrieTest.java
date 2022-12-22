@@ -16,39 +16,39 @@ class AgedBrieTest extends GildedRoseTest {
         // regular
         @Bean
         public Item agedBrie1() {
-            return new Item(AgedBrie.NAME, 3, 0);
+            return new Item("Aged Brie", 3, 0);
         }
         @Bean
         public Item agedBrie2() {
-            return new Item(AgedBrie.NAME, 3, 3);
+            return new Item("Aged Brie", 3, 3);
         }
         @Bean
         public Item agedBrie3() {
-            return new Item(AgedBrie.NAME, 3, 49);
+            return new Item("Aged Brie", 3, 49);
         }
 
         // after sell date
         @Bean
         public Item agedBrie4() {
-            return new Item(AgedBrie.NAME, 0, 3);
+            return new Item("Aged Brie", 0, 3);
         }
         @Bean
         public Item agedBrie5() {
-            return new Item(AgedBrie.NAME, -3, 7);
+            return new Item("Aged Brie", -3, 7);
         }
 
         // max quality limit
         @Bean
         public Item agedBrie6() {
-            return new Item(AgedBrie.NAME, 3, 50);
+            return new Item("Aged Brie", 3, 50);
         }
         @Bean
         public Item agedBrie7() {
-            return new Item(AgedBrie.NAME, 0, 49);
+            return new Item("Aged Brie", 0, 49);
         }
         @Bean
         public Item agedBrie8() {
-            return new Item(AgedBrie.NAME, -3, 50);
+            return new Item("Aged Brie", -3, 50);
         }
     }
 
