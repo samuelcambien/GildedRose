@@ -5,12 +5,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import com.gildedrose.GildedRoseTest;
 import com.gildedrose.Item;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 class ConjuredTest extends GildedRoseTest {
 
-    @TestConfiguration
+    @Configuration
     static class testConfig {
 
         // regular

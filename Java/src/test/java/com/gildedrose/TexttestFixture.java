@@ -1,7 +1,5 @@
 package com.gildedrose;
 
-import static org.springframework.boot.SpringApplication.run;
-
 public class TexttestFixture {
     public static void main(String[] args) {
         System.out.println("OMGHAI!");
@@ -17,7 +15,7 @@ public class TexttestFixture {
                 new Item("Backstage passes to a TAFKAL80ETC concert", 5, 49),
                 new Item("Conjured Mana Cake", 3, 6) };
 
-        GildedRose app = run(GildedRose.class).getBean(GildedRose.class);
+        GildedRose app = GildedRose.start().getBean(GildedRose.class);
         app.items = items;
 
         int days = 2;

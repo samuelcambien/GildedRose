@@ -1,7 +1,5 @@
 package com.gildedrose;
 
-import static org.springframework.boot.SpringApplication.run;
-
 import org.junit.jupiter.api.BeforeAll;
 import org.springframework.context.ApplicationContext;
 
@@ -11,7 +9,7 @@ public abstract class GildedRoseTest {
 
     @BeforeAll
     public static void setUp() {
-        context = run(GildedRose.class);
+        context = GildedRose.start();
         context.getBean(GildedRose.class)
                .updateQuality();
     }
