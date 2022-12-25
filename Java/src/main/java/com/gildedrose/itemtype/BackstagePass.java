@@ -1,9 +1,7 @@
 package com.gildedrose.itemtype;
 
-import static com.gildedrose.GildedRose.DEFAULT_SELLIN_UPDATER;
-
-import com.gildedrose.QualityUpdater;
 import com.gildedrose.ItemType;
+import com.gildedrose.QualityUpdater;
 
 public class BackstagePass extends ItemType {
 
@@ -21,6 +19,6 @@ public class BackstagePass extends ItemType {
     };
 
     public BackstagePass() {
-        super(NAME, QUALITY_UPDATER, DEFAULT_SELLIN_UPDATER);
+        super(NAME, QUALITY_UPDATER);
     }
 }

@@ -5,7 +5,6 @@ import static java.util.stream.Collectors.toMap;
 
 import java.util.Map;
 import java.util.Optional;
-import java.util.function.Consumer;
 import java.util.stream.Stream;
 
 import com.gildedrose.itemtype.AgedBrie;
@@ -16,7 +15,6 @@ import com.gildedrose.itemtype.Sulfuras;
 public class GildedRose {
 
     public static final QualityUpdater DEFAULT_QUALITY_UPDATER = item -> item.sellIn > 0 ? -1 : -2;
-    public static final Consumer<Item> DEFAULT_SELLIN_UPDATER = item -> item.sellIn--;
 
     Item[] items;
     private Map<String, ItemType> itemTypes;
@@ -38,12 +36,9 @@ public class GildedRose {
 
     public void updateQuality() {
         for (Item item : items) {
-            Optional<ItemType> itemType = Optional.ofNullable(itemTypes.get(item.name));
-            itemType.map(ItemType::getQualityUpdater)
+            Optional.ofNullable(itemTypes.get(item.name))
+                    .map(ItemType::getQualityUpdater)
                     .orElse(DEFAULT_QUALITY_UPDATER)
-                    .accept(item);
-            itemType.map(ItemType::getSellinUpdater)
-                    .orElse(DEFAULT_SELLIN_UPDATER)
                     .accept(item);
         }
     }
