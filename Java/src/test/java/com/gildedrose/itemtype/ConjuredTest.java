@@ -1,5 +1,6 @@
 package com.gildedrose.itemtype;
 
+import static com.gildedrose.ItemType.CONJURED;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.gildedrose.GildedRoseTest;
@@ -9,16 +10,16 @@ import org.junit.jupiter.api.Test;
 class ConjuredTest extends GildedRoseTest {
 
     // regular
-    private final Item conjuredItem1 = new Item(Conjured.NAME, 4, 3);
-    private final Item conjuredItem2 = new Item(Conjured.NAME, 3, 2);
+    private final Item conjuredItem1 = new Item(CONJURED.getName(), 4, 3);
+    private final Item conjuredItem2 = new Item(CONJURED.getName(), 3, 2);
 
     // after sell date
-    private final Item conjuredItem3 = new Item(Conjured.NAME, 0, 4);
-    private final Item conjuredItem4 = new Item(Conjured.NAME, -3, 47);
+    private final Item conjuredItem3 = new Item(CONJURED.getName(), 0, 4);
+    private final Item conjuredItem4 = new Item(CONJURED.getName(), -3, 47);
 
     // botom limit
-    private final Item conjuredItem5 = new Item(Conjured.NAME, 4, 1);
-    private final Item conjuredItem6 = new Item(Conjured.NAME, -3, 2);
+    private final Item conjuredItem5 = new Item(CONJURED.getName(), 4, 1);
+    private final Item conjuredItem6 = new Item(CONJURED.getName(), -3, 2);
 
     @Override
     public Item[] getItems() {
