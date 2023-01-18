@@ -1,6 +1,5 @@
 package com.gildedrose.itemtype;
 
-import static com.gildedrose.ItemType.BACKSTAGE_PASS;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.gildedrose.GildedRoseTest;
@@ -13,25 +12,25 @@ class BackstagePassTest extends GildedRoseTest {
     protected Item[] getItems() {
         return new Item[] {
             // regular
-            new Item(BACKSTAGE_PASS.getName(), 11, 0),
-            new Item(BACKSTAGE_PASS.getName(), 11, 49),
+            new Item("Backstage passes to a TAFKAL80ETC concert", 11, 0),
+            new Item("Backstage passes to a TAFKAL80ETC concert", 11, 49),
             // double increase
-            new Item(BACKSTAGE_PASS.getName(), 10, 0),
-            new Item(BACKSTAGE_PASS.getName(), 6, 3),
+            new Item("Backstage passes to a TAFKAL80ETC concert", 10, 0),
+            new Item("Backstage passes to a TAFKAL80ETC concert", 6, 3),
             // triple increase
-            new Item(BACKSTAGE_PASS.getName(), 5, 0),
-            new Item(BACKSTAGE_PASS.getName(), 1, 3),
+            new Item("Backstage passes to a TAFKAL80ETC concert", 5, 0),
+            new Item("Backstage passes to a TAFKAL80ETC concert", 1, 3),
             // after sell date
-            new Item(BACKSTAGE_PASS.getName(), 0, 3),
-            new Item(BACKSTAGE_PASS.getName(), -1, 47),
+            new Item("Backstage passes to a TAFKAL80ETC concert", 0, 3),
+            new Item("Backstage passes to a TAFKAL80ETC concert", -1, 47),
             // max quality limit
-            new Item(BACKSTAGE_PASS.getName(), 11, 50),
-            new Item(BACKSTAGE_PASS.getName(), 1, 48),
+            new Item("Backstage passes to a TAFKAL80ETC concert", 11, 50),
+            new Item("Backstage passes to a TAFKAL80ETC concert", 1, 48),
             // wrong usage
-            new Item(BACKSTAGE_PASS.getName(), 4, -7),
-            new Item(BACKSTAGE_PASS.getName(), 0, -7),
-            new Item(BACKSTAGE_PASS.getName(), 4, 52),
-            new Item(BACKSTAGE_PASS.getName(), 0, 52),
+            new Item("Backstage passes to a TAFKAL80ETC concert", 4, -7),
+            new Item("Backstage passes to a TAFKAL80ETC concert", 0, -7),
+            new Item("Backstage passes to a TAFKAL80ETC concert", 4, 52),
+            new Item("Backstage passes to a TAFKAL80ETC concert", 0, 52),
         };
     }
 

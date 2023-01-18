@@ -1,6 +1,5 @@
 package com.gildedrose.itemtype;
 
-import static com.gildedrose.ItemType.CONJURED;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.gildedrose.GildedRoseTest;
@@ -13,19 +12,19 @@ class ConjuredTest extends GildedRoseTest {
     public Item[] getItems() {
         return new Item[] {
             // regular
-            new Item(CONJURED.getName(), 4, 3),
-            new Item(CONJURED.getName(), 3, 2),
+            new Item("Conjured Mana Cake", 4, 3),
+            new Item("Conjured Mana Cake", 3, 2),
             // after sell date
-            new Item(CONJURED.getName(), 0, 4),
-            new Item(CONJURED.getName(), -3, 47),
+            new Item("Conjured Mana Cake", 0, 4),
+            new Item("Conjured Mana Cake", -3, 47),
             // botom limit
-            new Item(CONJURED.getName(), 4, 1),
-            new Item(CONJURED.getName(), -3, 2),
+            new Item("Conjured Mana Cake", 4, 1),
+            new Item("Conjured Mana Cake", -3, 2),
             // wrong usage
-            new Item(CONJURED.getName(), 4, -7),
-            new Item(CONJURED.getName(), 0, -7),
-            new Item(CONJURED.getName(), 4, 52),
-            new Item(CONJURED.getName(), 0, 52),
+            new Item("Conjured Mana Cake", 4, -7),
+            new Item("Conjured Mana Cake", 0, -7),
+            new Item("Conjured Mana Cake", 4, 52),
+            new Item("Conjured Mana Cake", 0, 52),
         };
     }
 

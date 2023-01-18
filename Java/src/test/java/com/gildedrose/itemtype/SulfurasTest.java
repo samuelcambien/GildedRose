@@ -1,6 +1,5 @@
 package com.gildedrose.itemtype;
 
-import static com.gildedrose.ItemType.SULFURAS;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.gildedrose.GildedRoseTest;
@@ -13,16 +12,16 @@ class SulfurasTest extends GildedRoseTest {
     protected Item[] getItems() {
         return new Item[] {
             // regular
-            new Item(SULFURAS.getName(), 0, 80),
-            new Item(SULFURAS.getName(), 7, 80),
-            new Item(SULFURAS.getName(), -4, 80),
+            new Item("Sulfuras, Hand of Ragnaros", 0, 80),
+            new Item("Sulfuras, Hand of Ragnaros", 7, 80),
+            new Item("Sulfuras, Hand of Ragnaros", -4, 80),
             // wrong usage
-            new Item(SULFURAS.getName(), 0, 88),
-            new Item(SULFURAS.getName(), 7, 88),
-            new Item(SULFURAS.getName(), -4, 88),
-            new Item(SULFURAS.getName(), 0, -11),
-            new Item(SULFURAS.getName(), 7, -11),
-            new Item(SULFURAS.getName(), -4, -11),
+            new Item("Sulfuras, Hand of Ragnaros", 0, 88),
+            new Item("Sulfuras, Hand of Ragnaros", 7, 88),
+            new Item("Sulfuras, Hand of Ragnaros", -4, 88),
+            new Item("Sulfuras, Hand of Ragnaros", 0, -11),
+            new Item("Sulfuras, Hand of Ragnaros", 7, -11),
+            new Item("Sulfuras, Hand of Ragnaros", -4, -11),
         };
     }
 

@@ -1,6 +1,5 @@
 package com.gildedrose.itemtype;
 
-import static com.gildedrose.ItemType.AGED_BRIE;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.gildedrose.GildedRoseTest;
@@ -13,21 +12,21 @@ class AgedBrieTest extends GildedRoseTest {
     protected Item[] getItems() {
         return new Item[] {
             // regular
-            new Item(AGED_BRIE.getName(), 3, 0),
-            new Item(AGED_BRIE.getName(), 3, 3),
-            new Item(AGED_BRIE.getName(), 3, 49),
+            new Item("Aged Brie", 3, 0),
+            new Item("Aged Brie", 3, 3),
+            new Item("Aged Brie", 3, 49),
             // after sell date
-            new Item(AGED_BRIE.getName(), 0, 3),
-            new Item(AGED_BRIE.getName(), -3, 7),
+            new Item("Aged Brie", 0, 3),
+            new Item("Aged Brie", -3, 7),
             // max quality limit
-            new Item(AGED_BRIE.getName(), 3, 50),
-            new Item(AGED_BRIE.getName(), 0, 49),
-            new Item(AGED_BRIE.getName(), -3, 50),
+            new Item("Aged Brie", 3, 50),
+            new Item("Aged Brie", 0, 49),
+            new Item("Aged Brie", -3, 50),
             // wrong usage
-            new Item(AGED_BRIE.getName(), 4, -7),
-            new Item(AGED_BRIE.getName(), 0, -7),
-            new Item(AGED_BRIE.getName(), 4, 52),
-            new Item(AGED_BRIE.getName(), 0, 52),
+            new Item("Aged Brie", 4, -7),
+            new Item("Aged Brie", 0, -7),
+            new Item("Aged Brie", 4, 52),
+            new Item("Aged Brie", 0, 52),
         };
     }
 
