@@ -1,41 +1,41 @@
 package com.gildedrose;
 
-import static com.gildedrose.GildedRose.DEFAULT_QUALITY_UPDATER;
-
 import java.util.function.Consumer;
 
-public enum ItemType {
+public class ItemType {
 
-    AGED_BRIE(
-        "Aged Brie",
-        (QualityUpdater) item -> -DEFAULT_QUALITY_UPDATER.getAmount(item)
-    ),
-    BACKSTAGE_PASS(
-        "Backstage passes to a TAFKAL80ETC concert",
-        (QualityUpdater) item -> item.sellIn <= 0 ? -item.quality : item.sellIn <= 5 ? 3 : item.sellIn <= 10 ? 2 : 1
-    ),
-    CONJURED(
-        "Conjured Mana Cake",
-        (QualityUpdater) item -> 2 * DEFAULT_QUALITY_UPDATER.getAmount(item)
-    ),
-    SULFURAS(
-        "Sulfuras, Hand of Ragnaros",
-        item -> {}
-    );
+    private static final QualityUpdater DEFAULT_QUALITY_UPDATER = item -> item.sellIn > 0 ? -1 : -2;
 
-    private final String name;
     private final Consumer<Item> qualityUpdater;
 
-    ItemType(String name, Consumer<Item> qualityUpdater) {
-        this.name = name;
+    private ItemType(Consumer<Item> qualityUpdater) {
         this.qualityUpdater = qualityUpdater;
     }
 
-    public String getName() {
-        return name;
+    public void update(Item item) {
+        this.qualityUpdater.accept(item);
     }
 
-    public Consumer<Item> getQualityUpdater() {
-        return qualityUpdater;
+    public static ItemType forName(String name) {
+        switch (name) {
+            case "Aged Brie":
+                return new ItemType(
+                    (QualityUpdater) item -> -DEFAULT_QUALITY_UPDATER.getAmount(item)
+                );
+            case "Backstage passes to a TAFKAL80ETC concert":
+                return new ItemType(
+                    (QualityUpdater) item -> item.sellIn <= 0 ? -item.quality : item.sellIn <= 5 ? 3 : item.sellIn <= 10 ? 2 : 1
+                );
+            case "Conjured Mana Cake":
+                return new ItemType(
+                    (QualityUpdater) item -> 2 * DEFAULT_QUALITY_UPDATER.getAmount(item)
+                );
+            case "Sulfuras, Hand of Ragnaros":
+                return new ItemType(
+                    item -> {}
+                );
+            default:
+                return new ItemType(DEFAULT_QUALITY_UPDATER);
+        }
     }
 }
