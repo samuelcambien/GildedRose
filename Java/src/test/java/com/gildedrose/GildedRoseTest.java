@@ -4,9 +4,11 @@ import org.junit.jupiter.api.BeforeEach;
 
 public abstract class GildedRoseTest {
 
+    protected Item[] items = getItems();
+
     @BeforeEach
     public void setUp() {
-        new GildedRose(getItems()).updateQuality();
+        new GildedRose(items).updateQuality();
     }
 
     protected abstract Item[] getItems();

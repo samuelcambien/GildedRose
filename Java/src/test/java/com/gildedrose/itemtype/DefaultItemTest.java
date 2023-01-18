@@ -8,52 +8,43 @@ import org.junit.jupiter.api.Test;
 
 class DefaultItemTest extends GildedRoseTest {
 
-    // regular
-    private final Item defaultItem1 = new Item("test item", 4, 3);
-    private final Item defaultItem2 = new Item("test item", 3, 1);
-
-    // after sell date
-    private final Item defaultItem3 = new Item("test item", 0, 4);
-    private final Item defaultItem4 = new Item("test item", -3, 47);
-
-    // bottom limit
-    private final Item defaultItem5 = new Item("test item", 4, 0);
-    private final Item defaultItem6 = new Item("test item", -3, 1);
-
     @Override
     public Item[] getItems() {
         return new Item[] {
-            defaultItem1,
-            defaultItem2,
-            defaultItem3,
-            defaultItem4,
-            defaultItem5,
-            defaultItem6,
+            // regular
+            new Item("test item", 4, 3),
+            new Item("test item", 3, 1),
+            // after sell date
+            new Item("test item", 0, 4),
+            new Item("test item", -3, 47),
+            // bottom limit
+            new Item("test item", 4, 0),
+            new Item("test item", -3, 1),
         };
     }
 
     @Test
     void sellinDecreases() {
-        assertEquals(3, defaultItem1.sellIn);
-        assertEquals(-1, defaultItem3.sellIn);
-        assertEquals(-4, defaultItem4.sellIn);
+        assertEquals(3, items[0].sellIn);
+        assertEquals(-1, items[2].sellIn);
+        assertEquals(-4, items[3].sellIn);
     }
 
     @Test
     void qualityDecreases() {
-        assertEquals(2, defaultItem1.quality);
-        assertEquals(0, defaultItem2.quality);
+        assertEquals(2, items[0].quality);
+        assertEquals(0, items[1].quality);
     }
 
     @Test
     void qualityDecreasesDoubleAfterSellDate() {
-        assertEquals(2, defaultItem3.quality);
-        assertEquals(45, defaultItem4.quality);
+        assertEquals(2, items[2].quality);
+        assertEquals(45, items[3].quality);
     }
 
     @Test
     void qualityAlwaysPositive() {
-        assertEquals(0, defaultItem5.quality);
-        assertEquals(0, defaultItem6.quality);
+        assertEquals(0, items[4].quality);
+        assertEquals(0, items[5].quality);
     }
 }

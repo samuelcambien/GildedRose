@@ -9,80 +9,65 @@ import org.junit.jupiter.api.Test;
 
 class BackstagePassTest extends GildedRoseTest {
 
-    // regular
-    private final Item backstagePass1 = new Item(BACKSTAGE_PASS.getName(), 11, 0);
-    private final Item backstagePass2 = new Item(BACKSTAGE_PASS.getName(), 11, 49);
-
-    // double increase
-    private final Item backstagePass3 = new Item(BACKSTAGE_PASS.getName(), 10, 0);
-    private final Item backstagePass4 = new Item(BACKSTAGE_PASS.getName(), 6, 3);
-
-    // triple increase
-    private final Item backstagePass5 = new Item(BACKSTAGE_PASS.getName(), 5, 0);
-    private final Item backstagePass6 = new Item(BACKSTAGE_PASS.getName(), 1, 3);
-
-    // after sell date
-    private final Item backstagePass7 = new Item(BACKSTAGE_PASS.getName(), 0, 3);
-    private final Item backstagePass8 = new Item(BACKSTAGE_PASS.getName(), -1, 47);
-
-    // max quality limit
-    private final Item backstagePass9 = new Item(BACKSTAGE_PASS.getName(), 11, 50);
-    private final Item backstagePass10 = new Item(BACKSTAGE_PASS.getName(), 1, 48);
-
     @Override
     protected Item[] getItems() {
         return new Item[] {
-            backstagePass1,
-            backstagePass2,
-            backstagePass3,
-            backstagePass4,
-            backstagePass5,
-            backstagePass6,
-            backstagePass7,
-            backstagePass8,
-            backstagePass9,
-            backstagePass10,
+            // regular
+            new Item(BACKSTAGE_PASS.getName(), 11, 0),
+            new Item(BACKSTAGE_PASS.getName(), 11, 49),
+            // double increase
+            new Item(BACKSTAGE_PASS.getName(), 10, 0),
+            new Item(BACKSTAGE_PASS.getName(), 6, 3),
+            // triple increase
+            new Item(BACKSTAGE_PASS.getName(), 5, 0),
+            new Item(BACKSTAGE_PASS.getName(), 1, 3),
+            // after sell date
+            new Item(BACKSTAGE_PASS.getName(), 0, 3),
+            new Item(BACKSTAGE_PASS.getName(), -1, 47),
+            // max quality limit
+            new Item(BACKSTAGE_PASS.getName(), 11, 50),
+            new Item(BACKSTAGE_PASS.getName(), 1, 48),
         };
     }
 
     @Test
     void sellinDecreases() {
-        assertEquals(10, backstagePass1.sellIn);
-        assertEquals(9, backstagePass3.sellIn);
-        assertEquals(5, backstagePass4.sellIn);
-        assertEquals(4, backstagePass5.sellIn);
-        assertEquals(0, backstagePass6.sellIn);
-        assertEquals(-1, backstagePass7.sellIn);
-        assertEquals(-2, backstagePass8.sellIn);
+        assertEquals(10, items[0].sellIn);
+        assertEquals(9, items[2].sellIn);
+        assertEquals(5, items[3].sellIn);
+        assertEquals(4, items[4].sellIn);
+        assertEquals(0, items[5].sellIn);
+        assertEquals(-1, items[6].sellIn);
+        assertEquals(-2, items[7].sellIn);
     }
 
     @Test
     void qualityIncrease() {
-        assertEquals(1, backstagePass1.quality);
-        assertEquals(50, backstagePass2.quality);
+        assertEquals(1, items[0].quality);
+        assertEquals(50, items[1].quality);
     }
 
     @Test
     void qualityIncreasesDouble10DaysOrLess() {
-        assertEquals(2, backstagePass3.quality);
-        assertEquals(5, backstagePass4.quality);
+        assertEquals(2, items[2].quality);
+        assertEquals(5, items[3].quality);
     }
 
     @Test
     void qualityIncreasesTriple5DaysOrLess() {
-        assertEquals(3, backstagePass5.quality);
-        assertEquals(6, backstagePass6.quality);
+        assertEquals(3, items[4].quality);
+        assertEquals(6, items[5].quality);
     }
 
     @Test
     void qualityDropsAfterSellDate() {
-        assertEquals(0, backstagePass7.quality);
-        assertEquals(0, backstagePass8.quality);
+        assertEquals(0, items[6].quality);
+        assertEquals(0, items[7].quality);
     }
 
     @Test
     void maxQuality() {
-        assertEquals(50, backstagePass9.quality);
-        assertEquals(50, backstagePass10.quality);
+        assertEquals(50, items[8].quality);
+        assertEquals(50, items[9].quality);
     }
 }
