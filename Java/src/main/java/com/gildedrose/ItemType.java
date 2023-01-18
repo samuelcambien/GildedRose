@@ -12,17 +12,7 @@ public enum ItemType {
     ),
     BACKSTAGE_PASS(
         "Backstage passes to a TAFKAL80ETC concert",
-        (QualityUpdater) item -> {
-            if (item.sellIn <= 0) {
-                return -item.quality;
-            } else if (item.sellIn <= 5) {
-                return 3;
-            } else if (item.sellIn <= 10) {
-                return 2;
-            } else {
-                return 1;
-            }
-        }
+        (QualityUpdater) item -> item.sellIn <= 0 ? -item.quality : item.sellIn <= 5 ? 3 : item.sellIn <= 10 ? 2 : 1
     ),
     CONJURED(
         "Conjured Mana Cake",
