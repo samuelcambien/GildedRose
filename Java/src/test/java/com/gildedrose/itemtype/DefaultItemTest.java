@@ -20,6 +20,11 @@ class DefaultItemTest extends GildedRoseTest {
             // bottom limit
             new Item("test item", 4, 0),
             new Item("test item", -3, 1),
+            // wrong usage
+            new Item("test item", 4, -7),
+            new Item("test item", 0, -7),
+            new Item("test item", 4, 52),
+            new Item("test item", 0, 52),
         };
     }
 
@@ -28,6 +33,10 @@ class DefaultItemTest extends GildedRoseTest {
         assertEquals(3, items[0].sellIn);
         assertEquals(-1, items[2].sellIn);
         assertEquals(-4, items[3].sellIn);
+        assertEquals(3, items[6].sellIn);
+        assertEquals(-1, items[7].sellIn);
+        assertEquals(3, items[8].sellIn);
+        assertEquals(-1, items[9].sellIn);
     }
 
     @Test
@@ -46,5 +55,13 @@ class DefaultItemTest extends GildedRoseTest {
     void qualityAlwaysPositive() {
         assertEquals(0, items[4].quality);
         assertEquals(0, items[5].quality);
+    }
+
+    @Test
+    void wrongUsage() {
+        assertEquals(-7, items[6].quality);
+        assertEquals(-7, items[7].quality);
+        assertEquals(51, items[8].quality);
+        assertEquals(50, items[9].quality);
     }
 }

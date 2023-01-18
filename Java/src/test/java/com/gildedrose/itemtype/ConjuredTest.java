@@ -21,6 +21,11 @@ class ConjuredTest extends GildedRoseTest {
             // botom limit
             new Item(CONJURED.getName(), 4, 1),
             new Item(CONJURED.getName(), -3, 2),
+            // wrong usage
+            new Item(CONJURED.getName(), 4, -7),
+            new Item(CONJURED.getName(), 0, -7),
+            new Item(CONJURED.getName(), 4, 52),
+            new Item(CONJURED.getName(), 0, 52),
         };
     }
 
@@ -29,6 +34,10 @@ class ConjuredTest extends GildedRoseTest {
         assertEquals(3, items[0].sellIn);
         assertEquals(-1, items[2].sellIn);
         assertEquals(-4, items[3].sellIn);
+        assertEquals(3, items[6].sellIn);
+        assertEquals(-1, items[7].sellIn);
+        assertEquals(3, items[8].sellIn);
+        assertEquals(-1, items[9].sellIn);
     }
 
     @Test
@@ -47,5 +56,13 @@ class ConjuredTest extends GildedRoseTest {
     void qualityAlwaysPositive() {
         assertEquals(0, items[4].quality);
         assertEquals(0, items[5].quality);
+    }
+
+    @Test
+    void wrongUsage() {
+        assertEquals(-7, items[6].quality);
+        assertEquals(-7, items[7].quality);
+        assertEquals(50, items[8].quality);
+        assertEquals(48, items[9].quality);
     }
 }

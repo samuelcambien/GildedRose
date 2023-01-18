@@ -27,6 +27,11 @@ class BackstagePassTest extends GildedRoseTest {
             // max quality limit
             new Item(BACKSTAGE_PASS.getName(), 11, 50),
             new Item(BACKSTAGE_PASS.getName(), 1, 48),
+            // wrong usage
+            new Item(BACKSTAGE_PASS.getName(), 4, -7),
+            new Item(BACKSTAGE_PASS.getName(), 0, -7),
+            new Item(BACKSTAGE_PASS.getName(), 4, 52),
+            new Item(BACKSTAGE_PASS.getName(), 0, 52),
         };
     }
 
@@ -39,6 +44,10 @@ class BackstagePassTest extends GildedRoseTest {
         assertEquals(0, items[5].sellIn);
         assertEquals(-1, items[6].sellIn);
         assertEquals(-2, items[7].sellIn);
+        assertEquals(3, items[10].sellIn);
+        assertEquals(-1, items[11].sellIn);
+        assertEquals(3, items[12].sellIn);
+        assertEquals(-1, items[13].sellIn);
     }
 
     @Test
@@ -69,5 +78,13 @@ class BackstagePassTest extends GildedRoseTest {
     void maxQuality() {
         assertEquals(50, items[8].quality);
         assertEquals(50, items[9].quality);
+    }
+
+    @Test
+    void wrongUsage() {
+        assertEquals(-4, items[10].quality);
+        assertEquals(0, items[11].quality);
+        assertEquals(52, items[12].quality);
+        assertEquals(0, items[13].quality);
     }
 }

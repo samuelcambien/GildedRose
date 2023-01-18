@@ -23,6 +23,11 @@ class AgedBrieTest extends GildedRoseTest {
             new Item(AGED_BRIE.getName(), 3, 50),
             new Item(AGED_BRIE.getName(), 0, 49),
             new Item(AGED_BRIE.getName(), -3, 50),
+            // wrong usage
+            new Item(AGED_BRIE.getName(), 4, -7),
+            new Item(AGED_BRIE.getName(), 0, -7),
+            new Item(AGED_BRIE.getName(), 4, 52),
+            new Item(AGED_BRIE.getName(), 0, 52),
         };
     }
 
@@ -31,6 +36,10 @@ class AgedBrieTest extends GildedRoseTest {
         assertEquals(2, items[0].sellIn);
         assertEquals(-1, items[3].sellIn);
         assertEquals(-4, items[4].sellIn);
+        assertEquals(3, items[8].sellIn);
+        assertEquals(-1, items[9].sellIn);
+        assertEquals(3, items[10].sellIn);
+        assertEquals(-1, items[11].sellIn);
     }
 
     @Test
@@ -51,5 +60,13 @@ class AgedBrieTest extends GildedRoseTest {
         assertEquals(50, items[5].quality);
         assertEquals(50, items[6].quality);
         assertEquals(50, items[7].quality);
+    }
+
+    @Test
+    void wrongUsage() {
+        assertEquals(-6, items[8].quality);
+        assertEquals(-5, items[9].quality);
+        assertEquals(52, items[10].quality);
+        assertEquals(52, items[11].quality);
     }
 }
